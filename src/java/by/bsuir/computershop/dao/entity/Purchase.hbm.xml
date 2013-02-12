@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 12, 2013 8:53:06 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="by.bsuir.computershop.dao.entity.Purchase" table="purchase" catalog="computershopbase">
+        <id name="idPurchase" type="int">
+            <column name="idPurchase" />
+            <generator class="assigned" />
+        </id>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="cost" type="java.lang.Float">
+            <column name="cost" precision="12" scale="0" />
+        </property>
+        <set name="personalcomputers" inverse="false" table="pc_purchase">
+            <key>
+                <column name="Purchase_idPurchase" not-null="true" />
+            </key>
+            <many-to-many entity-name="by.bsuir.computershop.dao.entity.Personalcomputer" class="by.bsuir.computershop.dao.entity.Personalcomputer">
+                <column name="PersonalComputer_idPersonalComputer" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="notebooks" inverse="false" table="notebook_purchase">
+            <key>
+                <column name="Purchase_idPurchase" not-null="true" />
+            </key>
+            <many-to-many entity-name="by.bsuir.computershop.dao.entity.Notebook" class="by.bsuir.computershop.dao.entity.Notebook">
+                <column name="Notebook_idNotebook" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

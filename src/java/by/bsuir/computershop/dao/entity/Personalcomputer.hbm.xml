@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 12, 2013 8:53:06 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="by.bsuir.computershop.dao.entity.Personalcomputer" table="personalcomputer" catalog="computershopbase">
+        <id name="idPersonalComputer" type="int">
+            <column name="idPersonalComputer" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="type" class="by.bsuir.computershop.dao.entity.Type" fetch="select">
+            <column name="Type_idType" not-null="true" />
+        </many-to-one>
+        <property name="namePc" type="string">
+            <column name="namePC" length="45" not-null="true" />
+        </property>
+        <property name="releaseDate" type="date">
+            <column name="releaseDate" length="10" not-null="true" />
+        </property>
+        <property name="platform" type="string">
+            <column name="platform" length="45" not-null="true" />
+        </property>
+        <property name="processor" type="string">
+            <column name="processor" length="45" not-null="true" />
+        </property>
+        <property name="numberOfCores" type="int">
+            <column name="numberOfCores" not-null="true" />
+        </property>
+        <property name="weight" type="float">
+            <column name="weight" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="diagonal" type="float">
+            <column name="diagonal" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="operationMemory" type="int">
+            <column name="operationMemory" not-null="true" />
+        </property>
+        <property name="hardDisk" type="int">
+            <column name="hardDisk" not-null="true" />
+        </property>
+        <property name="price" type="float">
+            <column name="price" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="discount" type="java.lang.Float">
+            <column name="discount" precision="12" scale="0" />
+        </property>
+        <set name="purchases" inverse="false" table="pc_purchase">
+            <key>
+                <column name="PersonalComputer_idPersonalComputer" not-null="true" />
+            </key>
+            <many-to-many entity-name="by.bsuir.computershop.dao.entity.Purchase" class="by.bsuir.computershop.dao.entity.Purchase">
+                <column name="Purchase_idPurchase" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
