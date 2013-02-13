@@ -4,20 +4,24 @@
  */
 package by.bsuir.computershop.factory;
 
+import by.bsuir.computershop.factory.notebook.ExporterNotebook;
+import by.bsuir.computershop.factory.notebook.ExporterNotebookCSV;
+import by.bsuir.computershop.factory.pc.ExporterPersonalComputer;
+import by.bsuir.computershop.factory.pc.ExporterPersonalComputerCSV;
+
 /**
  *
  * @author 1
  */
-public class ExporterFactoryCSV implements ExporterFactory{
+public class ExporterFactoryCSV implements ExporterFactory {
 
     @Override
-    public void createNotebook() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public ExporterNotebook createNotebook() {
+        return new ExporterNotebookCSV();
     }
 
     @Override
-    public void createPersonalComputer() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public ExporterPersonalComputer createPersonalComputer() {
+        return new ExporterPersonalComputerCSV();
     }
-    
 }

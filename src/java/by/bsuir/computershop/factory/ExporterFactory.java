@@ -4,13 +4,16 @@
  */
 package by.bsuir.computershop.factory;
 
+import by.bsuir.computershop.factory.notebook.ExporterNotebook;
+import by.bsuir.computershop.factory.pc.ExporterPersonalComputer;
+
 /**
  *
  * @author 1
  */
 public interface ExporterFactory {
 
-    public void createNotebook();
+    public ExporterNotebook createNotebook();
 
-    public void createPersonalComputer();
+    public ExporterPersonalComputer createPersonalComputer();
 }
