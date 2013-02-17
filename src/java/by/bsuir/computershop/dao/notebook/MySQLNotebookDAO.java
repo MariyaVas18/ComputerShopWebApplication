@@ -26,7 +26,7 @@ public class MySQLNotebookDAO implements INotebookDAO {
     }
 
     @Override
-    public Collection getAllNotebook() {
+    public List<Notebook> getAllNotebook() {
         List<Notebook> notebooks = null;
         try {
             this.session = HibernateUtil.getSessionFactory().getCurrentSession();

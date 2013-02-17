@@ -2,7 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package by.bsuir.computershop.factory.notebook;
+package by.bsuir.computershop.abstractfactory.notebook;
+
+import by.bsuir.computershop.dao.entity.Notebook;
+import java.util.List;
 
 /**
  *
@@ -11,7 +14,7 @@ package by.bsuir.computershop.factory.notebook;
 public class ExporterNotebookXML implements ExporterNotebook{
 
     @Override
-    public void saveToFileNotebooks() {
+    public void saveToFileNotebooks(List<Notebook> notebooks) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

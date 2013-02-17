@@ -80,7 +80,7 @@ public class MySQLPCDAO implements IPCDAO {
     }
 
     @Override
-    public Collection getAllPersonalComputer() {
+    public List<Personalcomputer> getAllPersonalComputer() {
         List<Personalcomputer> pComputers = null;
         try {
             this.session = HibernateUtil.getSessionFactory().getCurrentSession();

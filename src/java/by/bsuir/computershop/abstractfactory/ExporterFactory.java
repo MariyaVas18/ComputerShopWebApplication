@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package by.bsuir.computershop.factory;
+package by.bsuir.computershop.abstractfactory;
 
-import by.bsuir.computershop.factory.notebook.ExporterNotebook;
-import by.bsuir.computershop.factory.pc.ExporterPersonalComputer;
+import by.bsuir.computershop.abstractfactory.notebook.ExporterNotebook;
+import by.bsuir.computershop.abstractfactory.pc.ExporterPersonalComputer;
 
 /**
  *
