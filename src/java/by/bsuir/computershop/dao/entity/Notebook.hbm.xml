@@ -6,7 +6,7 @@
     <class name="by.bsuir.computershop.dao.entity.Notebook" table="notebook" catalog="computershopbase">
         <id name="idNotebook" type="int">
             <column name="idNotebook" />
-            <generator class="assigned" />
+            <generator class="identity"/>
         </id>
         <many-to-one name="type" class="by.bsuir.computershop.dao.entity.Type" fetch="select">
             <column name="Type_idType" not-null="true" />

@@ -16,10 +16,10 @@
             <fieldset>
                 <table cellspacing="12">
                     <tr>
-                        <td><label>ИН</label></td>
-                        <td><input type="number" name="idNotebook" size="15"/></td>
+                        <td><label>Название</label></td>
+                        <td><input type="string" name="nameNotebook" size="15"/></td>
                     </tr>
-                    <tr> <td><label>Тип</label></td>
+                       <tr> <td><label>Тип</label></td>
                         <td>  <select name="type"  required style="width: 121px" >
                                 <option></option>
                                 <option value="бюджетный">бюджетный</option>
@@ -30,7 +30,7 @@
                     </tr>
                     <tr>
                         <td><label>Дата выхода</label></td>
-                        <td><input type="datetime" name="releaseDate" size="15"/></td>
+                        <td><input type="date" name="releaseDate" size="15"/></td>
                     </tr>
                     <tr>
                         <td><label>Платформа</label></td>
@@ -55,7 +55,7 @@
                     </tr>
                      <tr>
                         <td><label>Количество ядер<label></td>
-                        <td><select name="numberOfCore" required style="width: 121px">
+                        <td><select name="numberOfCores" required style="width: 121px">
                                 <option ></option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -70,31 +70,6 @@
                         <td><label>вес, г</label></td>
                         <td><input type="number" name="weight"  required size="15"/></td>
                     </tr>
-                    <tr>
-                        <td><label>Количество ядер<label></td>
-                        <td><select name="numberOfCore" required style="width: 121px">
-                                <option ></option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="8">8</option>
-                                <option value="10">10</option>
-                                <option value="12">12</option>
-                        </td>
-                    </tr>
-                     <tr>
-                        <td><label>Количество ядер<label></td>
-                        <td><select name="numberOfCore" required style="width: 121px">
-                                <option ></option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="8">8</option>
-                                <option value="10">10</option>
-                                <option value="12">12</option>
-                        </td>
                     </tr>
                      <tr>
                         <td><label>Диагональ<label></td>
@@ -145,7 +120,7 @@
                     </tr>
                     <tr> 
                         <td><label>Скидка</label></td>
-                        <td><input type="text" name="discont"  required size="15"/></td>
+                        <td><input type="text" name="discount"  required size="15"/></td>
                     </tr>
                   
                 </table>

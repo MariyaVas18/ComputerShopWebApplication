@@ -18,25 +18,35 @@
             <table border='1' title='Notebooks' id="myTable">
                 <thead><tr>
                         <th>#</th>
-                        <th>sd</th>
-                        <th>fdf</th>
-                        <th>fgfg</th>
-                        <th>dgfg</th>
-                        <th>fgf</th>
-                        <th>fgfg</th>
-                        <th>fgf</th>
+                        <th>Название</th>
+                        <th>Дата выхода</th>
+                        <th>Платформа</th>
+                        <th>Процессор</th>
+                        <th>Количество ядер</th>
+                        <th>Вес</th>
+                        <th>Диагональ</th>
+                        <th>Оперативная память</th>
+                        <th>Емкость жесткого диска</th>
+                        <th>Кол часов зарядки</th>
+                        <th>Цена</th>
+                        <th>Скидка</th>
                     </tr></thead>
                 <tbody>
                     <c:forEach var="notebook" items="${notebooks}"> 
                         <tr>
                             <td><input type="radio" name="idNotebook" value="${notebook.idNotebook}"/></td>
-                            <td><c:out value="${notebook.idNotebook}" /></td>
                             <td><c:out value="${notebook.nameNotebook}" /></td>
+                            <td><c:out value="${notebook.releaseDate}" /></td>
                             <td><c:out value="${notebook.platform}"/></td>
                             <td><c:out value="${notebook.processor}"/></td>
+                            <td><c:out value="${notebook.numberOfCores}"/></td>
+                            <td><c:out value="${notebook.weight}"/></td>
+                            <td><c:out value="${notebook.diagonal}"/></td>
                             <td><c:out value="${notebook.operationMemory}"/></td>
+                            <td><c:out value="${notebook.hardDisk}"/></td>
                             <td><c:out value="${notebook.battery}"/></td>
                             <td><c:out value="${notebook.price}"/></td>
+                            <td><c:out value="${notebook.discount}"/></td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -53,25 +63,33 @@
             <table border='1' title='Personal computers' id="myTable">
                 <thead><tr>
                         <th>#</th>
-                        <th>sd</th>
-                        <th>fdf</th>
-                        <th>fgfg</th>
-                        <th>dgfg</th>
-                        <th>fgf</th>
-                        <th>fgfg</th>
-                        <th>fgf</th>
+                        <th>Название</th>
+                        <th>Дата выхода</th>
+                        <th>Платформа</th>
+                        <th>Процессор</th>
+                        <th>Количество ядер</th>
+                        <th>Вес</th>
+                        <th>Диагональ</th>
+                        <th>Оперативная память</th>
+                        <th>Емкость жесткого диска</th>
+                        <th>Цена</th>
+                        <th>Скидка</th>
                     </tr></thead>
                 <tbody>
                     <c:forEach var="pc" items="${personalComputers}"> 
                         <tr>
                             <td><input type="radio" name="idPersonalComputer" value="${pc.idPersonalComputer}"/></td>
-                            <td><c:out value="${pc.idNotebook}" /></td>
-                            <td><c:out value="${pc.nameNotebook}" /></td>
-                            <td><c:out value="${pc.platform}"/></td>
-                            <td><c:out value="${pc.processor}"/></td>
-                            <td><c:out value="${pc.operationMemory}"/></td>
-                            <td><c:out value="${pc.hardDisk}"/></td>
-                            <td><c:out value="${pc.price}"/></td>
+                            <td><c:out value="${notebook.namePc}" /></td>
+                            <td><c:out value="${notebook.releaseDate}" /></td>
+                            <td><c:out value="${notebook.platform}"/></td>
+                            <td><c:out value="${notebook.processor}"/></td>
+                            <td><c:out value="${notebook.numberOfCores}"/></td>
+                            <td><c:out value="${notebook.weight}"/></td>
+                            <td><c:out value="${notebook.diagonal}"/></td>
+                            <td><c:out value="${notebook.operationMemory}"/></td>
+                            <td><c:out value="${notebook.hardDisk}"/></td>
+                            <td><c:out value="${notebook.price}"/></td>
+                            <td><c:out value="${notebook.discount}"/></td>
                         </tr>
                     </c:forEach>
                 </tbody>

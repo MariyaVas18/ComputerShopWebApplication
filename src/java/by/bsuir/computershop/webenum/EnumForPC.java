@@ -9,8 +9,21 @@ package by.bsuir.computershop.webenum;
  * @author 1
  */
 public enum EnumForPC {
-     PERSONALCOMPUTERS("personalComputers");
-    
+
+    PERSONALCOMPUTERS("personalComputers"),
+    IDPERSONALCOMPUTER("idPersonalComputer"),
+    TYPE("type"),
+    NAMENOTEBOOK("namePc"),
+    RELEASEDATE("releaseDate"),
+    PLATFORM("platform"),
+    PROCESSOR("processor"),
+    NUMBEROFCORES("numberOfCores"),
+    WEIGHT("weight"),
+    DIAGONAL("diagonal"),
+    OPERATIONMEMORY("operationMemory"),
+    HARDDISK("hardDisk"),
+    PRICE("price"),
+    DISCONT("discount");
     private final String value;
 
     EnumForPC(String v) {

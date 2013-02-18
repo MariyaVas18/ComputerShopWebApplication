@@ -6,7 +6,7 @@
     <class name="by.bsuir.computershop.dao.entity.Purchase" table="purchase" catalog="computershopbase">
         <id name="idPurchase" type="int">
             <column name="idPurchase" />
-            <generator class="assigned" />
+            <generator class="identity"/>
         </id>
         <property name="date" type="date">
             <column name="date" length="10" />

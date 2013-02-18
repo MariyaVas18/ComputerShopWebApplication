@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package by.bsuir.computershop.coomand.notebook;
+package by.bsuir.computershop.command.notebook;
 
 import by.bsuir.computershop.command.Command;
 import by.bsuir.computershop.command.WrapperParameter;
