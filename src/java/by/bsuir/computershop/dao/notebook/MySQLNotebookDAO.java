@@ -6,7 +6,6 @@ package by.bsuir.computershop.dao.notebook;
 
 import by.bsuir.computershop.dao.entity.Notebook;
 import by.bsuir.computershop.hibernateutil.HibernateUtil;
-import java.util.Collection;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;

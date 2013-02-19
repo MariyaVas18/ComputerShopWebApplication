@@ -19,8 +19,9 @@
                 <table cellspacing="12">
                     <tr>
                         <td><label>Название</label></td>
-                        <td><input type="string" name="nameNotebook" size="15"/></td>
+                        <td><input type="string" name="namePC" size="15"/></td>
                     </tr>
+                    <form action="/ComputerShopWebApplication/controller" method="POST">
                        <tr> <td><label>Тип</label></td>
                         <td>   
                        <tbody>
@@ -33,7 +34,7 @@
                 </tbody>
                         </td>
                     </tr>
-                    
+                    </form>
                        <tr>
                         <td><label>Дата выхода</label></td>
                         <td><input type="date" name="releaseDate" size="15"/></td>
@@ -117,10 +118,6 @@
                         </td>
                     </tr>
                     <tr> 
-                        <td><label>Время работы</label></td>
-                        <td><input type="text" name="battery"  required size="15"/></td>
-                    </tr>
-                    <tr> 
                         <td><label>Цена</label></td>
                         <td><input type="text" name="price"  required size="15"/></td>
                     </tr>
@@ -134,8 +131,8 @@
                 <button type="reset" value="Очистить поля">
                     Очистить поля
                 </button>
-                <button type="submit" name ="command" value="addingNotebook">
-                    Добавить ноутбук
+                <button type="submit" name ="command" value="addingPC">
+                    Добавить компьютер
                 </button>
             </fieldset>
         </form> 

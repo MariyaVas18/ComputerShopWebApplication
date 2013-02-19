@@ -12,8 +12,8 @@ public enum EnumForPC {
 
     PERSONALCOMPUTERS("personalComputers"),
     IDPERSONALCOMPUTER("idPersonalComputer"),
-    TYPE("type"),
-    NAMENOTEBOOK("namePc"),
+    IDTYPE("idType"),
+    NAMEPC("namePC"),
     RELEASEDATE("releaseDate"),
     PLATFORM("platform"),
     PROCESSOR("processor"),
@@ -23,7 +23,7 @@ public enum EnumForPC {
     OPERATIONMEMORY("operationMemory"),
     HARDDISK("hardDisk"),
     PRICE("price"),
-    DISCONT("discount");
+    DISCOUNT("discount");
     private final String value;
 
     EnumForPC(String v) {

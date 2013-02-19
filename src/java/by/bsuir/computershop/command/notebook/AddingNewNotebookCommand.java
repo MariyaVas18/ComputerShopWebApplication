@@ -10,6 +10,7 @@ import by.bsuir.computershop.dao.entity.Notebook;
 import by.bsuir.computershop.dao.factory.DAOFactory;
 import by.bsuir.computershop.dao.notebook.FillingObjects;
 import by.bsuir.computershop.dao.notebook.MySQLNotebookDAO;
+import by.bsuir.computershop.dao.type.MySQLTypeDAO;
 import by.bsuir.computershop.manager.ConfigurationManager;
 import by.bsuir.computershop.webenum.EnumForNotebook;
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class AddingNewNotebookCommand implements Command {
         String page = null;
         try {
             HashMap<String, Object> requestParam = (HashMap<String, Object>) wrapper.parse();
-            String type = (String) requestParam.get(EnumForNotebook.TYPE.value());
+            int idType = Integer.parseInt((String) requestParam.get(EnumForNotebook.IDTYPE.value()));
             String nameNotebook = (String) requestParam.get(EnumForNotebook.NAMENOTEBOOK.value());
             String releaseDateString = (String) requestParam.get(EnumForNotebook.RELEASEDATE.value());
             String platform = (String) requestParam.get(EnumForNotebook.PLATFORM.value());
@@ -47,17 +48,20 @@ public class AddingNewNotebookCommand implements Command {
             float price = Float.parseFloat((String) requestParam.get(EnumForNotebook.PRICE.value()));
             Float discount = Float.parseFloat((String) requestParam.get(EnumForNotebook.DISCOUNT.value()));
 
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd"); 
-            Date releaseDate = dateFormat.parse(releaseDateString); 
-    
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+            Date releaseDate = dateFormat.parse(releaseDateString);
+
             FillingObjects notebookObjForFill = new FillingObjects();
-                        
+
             DAOFactory mySQLFactory = DAOFactory.getDAOFactory(
                     ConfigurationManager.getInstance().getProperty(ConfigurationManager.MY_FACTORY));
             MySQLNotebookDAO notebookDAO = (MySQLNotebookDAO) mySQLFactory.getNotebookDAO();
+            MySQLTypeDAO typeDAO = (MySQLTypeDAO) mySQLFactory.getTypeDAO();
             List<Notebook> notebooks = notebookDAO.getAllNotebook();
-            notebookDAO.insertNotebook(notebookObjForFill.fillObjectNotebook(type, nameNotebook, releaseDate,
-                    platform, processor, numberOfCores, weight, diagonal, operationMemory, 
+
+            notebookDAO.insertNotebook(notebookObjForFill.fillObjectNotebook(typeDAO.getTypeByID(idType),
+                    nameNotebook, releaseDate,
+                    platform, processor, numberOfCores, weight, diagonal, operationMemory,
                     hardDisk, battery, price, discount));
             wrapper.getSession().setAttribute(EnumForNotebook.NOTEBOOKS.value(), notebooks);
 

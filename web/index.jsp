@@ -54,8 +54,16 @@
             <table>
                 <tr>
                     <td><button type="submit" value="viewNotebooks" name="command">
-                            Notebooks
+                            View Notebooks
                         </button></td>
+                         <td><button type="submit" value="deleteNotebook" name="command">
+                            Удалить ноутбук
+                        </button>
+                    </td>
+                     <td><button type="submit" value="addingNotebookPage" name="command">
+                            Добавить ноутбук
+                        </button>
+                    </td>
                 </tr>
             </table>
         </form>  
@@ -79,17 +87,17 @@
                     <c:forEach var="pc" items="${personalComputers}"> 
                         <tr>
                             <td><input type="radio" name="idPersonalComputer" value="${pc.idPersonalComputer}"/></td>
-                            <td><c:out value="${notebook.namePc}" /></td>
-                            <td><c:out value="${notebook.releaseDate}" /></td>
-                            <td><c:out value="${notebook.platform}"/></td>
-                            <td><c:out value="${notebook.processor}"/></td>
-                            <td><c:out value="${notebook.numberOfCores}"/></td>
-                            <td><c:out value="${notebook.weight}"/></td>
-                            <td><c:out value="${notebook.diagonal}"/></td>
-                            <td><c:out value="${notebook.operationMemory}"/></td>
-                            <td><c:out value="${notebook.hardDisk}"/></td>
-                            <td><c:out value="${notebook.price}"/></td>
-                            <td><c:out value="${notebook.discount}"/></td>
+                            <td><c:out value="${pc.namePc}" /></td>
+                            <td><c:out value="${pc.releaseDate}" /></td>
+                            <td><c:out value="${pc.platform}"/></td>
+                            <td><c:out value="${pc.processor}"/></td>
+                            <td><c:out value="${pc.numberOfCores}"/></td>
+                            <td><c:out value="${pc.weight}"/></td>
+                            <td><c:out value="${pc.diagonal}"/></td>
+                            <td><c:out value="${pc.operationMemory}"/></td>
+                            <td><c:out value="${pc.hardDisk}"/></td>
+                            <td><c:out value="${pc.price}"/></td>
+                            <td><c:out value="${pc.discount}"/></td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -97,11 +105,20 @@
             <table>
                 <tr>
                     <td><button type="submit" value="viewPersonalComputers" name="command">
-                            Personal computers
-                        </button></td>
+                            View Personal computers
+                        </button>
+                    </td>
+                    <td><button type="submit" value="deletePC" name="command">
+                            Удалить компьютер
+                        </button>
+                    </td>
+                     <td><button type="submit" value="addingPCPage" name="command">
+                            Добавить компьютер
+                        </button>
+                    </td>
                 </tr>
             </table>
-        </form>  
-        <a href="addingNotebook.jsp">Добавить ноутбук</a>
+         </form>  
+        
     </body>
 </html>

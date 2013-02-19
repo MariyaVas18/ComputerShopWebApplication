@@ -7,8 +7,12 @@ package by.bsuir.computershop.controller;
 import by.bsuir.computershop.command.Command;
 import by.bsuir.computershop.command.NoCommand;
 import by.bsuir.computershop.command.notebook.AddingNewNotebookCommand;
+import by.bsuir.computershop.command.notebook.DeleteNotebookCommand;
 import by.bsuir.computershop.command.notebook.ViewAllNotebookCommand;
+import by.bsuir.computershop.command.pc.AddingNewPCCommand;
+import by.bsuir.computershop.command.pc.DeletePCCommand;
 import by.bsuir.computershop.command.pc.ViewAllPCCommand;
+import by.bsuir.computershop.command.type.ViewTypesCommand;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,6 +25,11 @@ public class RequestHelper {
         commands.put("viewPersonalComputers", new ViewAllPCCommand());
         commands.put("viewNotebooks", new ViewAllNotebookCommand());
         commands.put("addingNotebook", new AddingNewNotebookCommand());
+        commands.put("addingPC", new AddingNewPCCommand());
+        commands.put("addingNotebookPage", new ViewTypesCommand());
+        commands.put("addingPCPage", new ViewTypesCommand());
+        commands.put("deleteNotebook", new DeleteNotebookCommand());
+        commands.put("deletePC", new DeletePCCommand());
     }
 
     public Command getCommand(HttpServletRequest request) {

@@ -12,7 +12,7 @@ public enum EnumForNotebook {
 
     NOTEBOOKS("notebooks"),
     IDNOTEBOOK("idNotebook"),
-    TYPE("type"),
+    IDTYPE("idType"),
     NAMENOTEBOOK("nameNotebook"),
     RELEASEDATE("releaseDate"),
     PLATFORM("platform"),
