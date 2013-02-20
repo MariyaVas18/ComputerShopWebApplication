@@ -8,6 +8,8 @@ import by.bsuir.computershop.command.Command;
 import by.bsuir.computershop.command.NoCommand;
 import by.bsuir.computershop.command.notebook.AddingNewNotebookCommand;
 import by.bsuir.computershop.command.notebook.DeleteNotebookCommand;
+import by.bsuir.computershop.command.notebook.EditPriceOrDiscountNotebook;
+import by.bsuir.computershop.command.notebook.PrepareEditPriceOrDicountNotebookCommand;
 import by.bsuir.computershop.command.notebook.ViewAllNotebookCommand;
 import by.bsuir.computershop.command.pc.AddingNewPCCommand;
 import by.bsuir.computershop.command.pc.DeletePCCommand;
@@ -24,6 +26,8 @@ public class RequestHelper {
     private RequestHelper() {
         commands.put("viewPersonalComputers", new ViewAllPCCommand());
         commands.put("viewNotebooks", new ViewAllNotebookCommand());
+        commands.put("editNotebookPage", new PrepareEditPriceOrDicountNotebookCommand());
+        commands.put("editNotebook", new EditPriceOrDiscountNotebook());
         commands.put("addingNotebook", new AddingNewNotebookCommand());
         commands.put("addingPC", new AddingNewPCCommand());
         commands.put("addingNotebookPage", new ViewTypesCommand());

@@ -40,7 +40,7 @@ public class MySQLNotebookDAO implements INotebookDAO {
 
     @Override
     public Notebook getNotebookById(int idNotebook) {
-         Notebook notebook = null;
+        Notebook notebook = null;
         try {
             this.session = HibernateUtil.getSessionFactory().getCurrentSession();
             org.hibernate.Transaction tx = session.beginTransaction();
@@ -80,10 +80,25 @@ public class MySQLNotebookDAO implements INotebookDAO {
     }
 
     @Override
-    public boolean updateNotebook(Notebook notebook) {
-         try {
+    public boolean updateNotebook(Notebook notebookForUpdate) {
+        Notebook notebook = new Notebook();
+        try {
             this.session = HibernateUtil.getSessionFactory().getCurrentSession();
             org.hibernate.Transaction tx = session.beginTransaction();
+            notebook.setIdNotebook(notebookForUpdate.getIdNotebook());
+            notebook.setBattery(notebookForUpdate.getBattery());
+            notebook.setDiagonal(notebookForUpdate.getDiagonal());
+            notebook.setDiscount(notebookForUpdate.getDiscount());
+            notebook.setHardDisk(notebookForUpdate.getHardDisk());
+            notebook.setNameNotebook(notebookForUpdate.getNameNotebook());
+            notebook.setNumberOfCores(notebookForUpdate.getNumberOfCores());
+            notebook.setOperationMemory(notebookForUpdate.getOperationMemory());
+            notebook.setPlatform(notebookForUpdate.getPlatform());
+            notebook.setPrice(notebookForUpdate.getPrice());
+            notebook.setProcessor(notebookForUpdate.getProcessor());
+            notebook.setReleaseDate(notebookForUpdate.getReleaseDate());
+            notebook.setType(notebookForUpdate.getType());
+            notebook.setWeight(notebookForUpdate.getWeight());
             this.session.saveOrUpdate(notebook);
             return true;
         } catch (Exception e) {

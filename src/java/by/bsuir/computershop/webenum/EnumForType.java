@@ -9,7 +9,9 @@ package by.bsuir.computershop.webenum;
  * @author 1
  */
 public enum EnumForType {
-    TYPES("types");
+    TYPES("types"),
+    TYPE("type"),
+    NAMETYPE("nameType");
     private final String value;
 
     EnumForType(String v) {

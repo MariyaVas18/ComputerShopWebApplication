@@ -64,6 +64,9 @@
                             Добавить ноутбук
                         </button>
                     </td>
+                    <td><button type="submit" value="editNotebookPage" name="command">
+                            Редактировать ноутбук
+                    </td>
                 </tr>
             </table>
         </form>  

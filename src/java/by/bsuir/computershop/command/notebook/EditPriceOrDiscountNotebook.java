@@ -27,7 +27,7 @@ import javax.servlet.ServletException;
  *
  * @author 1
  */
-public class AddingNewNotebookCommand implements Command {
+public class EditPriceOrDiscountNotebook implements Command {
 
     @Override
     public String execute(WrapperParameter wrapper) throws ServletException, IOException {
@@ -35,6 +35,7 @@ public class AddingNewNotebookCommand implements Command {
         try {
             HashMap<String, Object> requestParam = (HashMap<String, Object>) wrapper.parse();
             int idType = Integer.parseInt((String) requestParam.get(EnumForNotebook.IDTYPE.value()));
+            int idNotebook = Integer.parseInt((String) requestParam.get(EnumForNotebook.IDNOTEBOOK.value()));
             String nameNotebook = (String) requestParam.get(EnumForNotebook.NAMENOTEBOOK.value());
             String releaseDateString = (String) requestParam.get(EnumForNotebook.RELEASEDATE.value());
             String platform = (String) requestParam.get(EnumForNotebook.PLATFORM.value());
@@ -57,12 +58,12 @@ public class AddingNewNotebookCommand implements Command {
                     ConfigurationManager.getInstance().getProperty(ConfigurationManager.MY_FACTORY));
             MySQLNotebookDAO notebookDAO = (MySQLNotebookDAO) mySQLFactory.getNotebookDAO();
             MySQLTypeDAO typeDAO = (MySQLTypeDAO) mySQLFactory.getTypeDAO();
-            List<Notebook> notebooks = notebookDAO.getAllNotebook();
-
-            notebookDAO.insertNotebook(notebookObjForFill.fillObjectNotebookForAdding(typeDAO.getTypeByID(idType),
+            
+            notebookDAO.updateNotebook(notebookObjForFill.fillObjectNotebookForEdit(idNotebook, typeDAO.getTypeByID(idType),
                     nameNotebook, releaseDate,
                     platform, processor, numberOfCores, weight, diagonal, operationMemory,
                     hardDisk, battery, price, discount));
+            List<Notebook> notebooks = notebookDAO.getAllNotebook();
             wrapper.getSession().setAttribute(EnumForNotebook.NOTEBOOKS.value(), notebooks);
 
             //page = ConfigurationManager.getInstance().getProperty(ConfigurationManager.SHOW_ROOMS_PAGE_PATH);

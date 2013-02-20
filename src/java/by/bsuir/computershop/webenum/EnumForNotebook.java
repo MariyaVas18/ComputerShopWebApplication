@@ -11,6 +11,7 @@ package by.bsuir.computershop.webenum;
 public enum EnumForNotebook {
 
     NOTEBOOKS("notebooks"),
+    NOTEBOOK("notebook"),
     IDNOTEBOOK("idNotebook"),
     IDTYPE("idType"),
     NAMENOTEBOOK("nameNotebook"),
