@@ -17,9 +17,9 @@ import by.bsuir.computershop.command.pc.EditPriceOrDiscountPCCommand;
 import by.bsuir.computershop.command.pc.PrepareEditPriceOrDicountPCCommand;
 import by.bsuir.computershop.command.pc.ViewAllPCCommand;
 import by.bsuir.computershop.command.type.ViewTypesCommand;
-import by.bsuir.computershop.commnad.purchase.PurchaseNotebookCommand;
-import by.bsuir.computershop.commnad.purchase.PurchasePCCommand;
-import by.bsuir.computershop.commnad.purchase.ViewAllPurchases;
+import by.bsuir.computershop.command.purchase.PurchaseNotebookCommand;
+import by.bsuir.computershop.command.purchase.PurchasePCCommand;
+import by.bsuir.computershop.command.purchase.ViewAllPurchases;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 

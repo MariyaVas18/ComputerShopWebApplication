@@ -2,18 +2,15 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package by.bsuir.computershop.commnad.purchase;
+package by.bsuir.computershop.command.purchase;
 
 import by.bsuir.computershop.command.Command;
 import by.bsuir.computershop.command.WrapperParameter;
-import by.bsuir.computershop.dao.entity.Personalcomputer;
 import by.bsuir.computershop.dao.entity.Purchase;
 import by.bsuir.computershop.dao.factory.DAOFactory;
-import by.bsuir.computershop.dao.pc.MySQLPCDAO;
 import by.bsuir.computershop.dao.purchase.MySQLPurchaseDAO;
 import by.bsuir.computershop.manager.ConfigurationManager;
 import by.bsuir.computershop.webenum.EnumForNotebook;
-import by.bsuir.computershop.webenum.EnumForPC;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
