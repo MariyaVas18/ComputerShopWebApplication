@@ -4,7 +4,6 @@
  */
 package by.bsuir.computershop.dao.purchase;
 
-import by.bsuir.computershop.dao.entity.Personalcomputer;
 import by.bsuir.computershop.dao.entity.Purchase;
 import by.bsuir.computershop.hibernateutil.HibernateUtil;
 import java.util.Collection;
@@ -67,5 +66,21 @@ public class MySQLPurchaseDAO implements IPurchaseDAO {
             e.printStackTrace();
         }
         return purchase;
+    }
+     @Override
+    public boolean insertPurchase(Purchase purchase) {
+        try {
+            this.session = HibernateUtil.getSessionFactory().getCurrentSession();
+            if (!this.session.isOpen()) {
+                this.session = HibernateUtil.getSessionFactory().openSession();
+            }
+            org.hibernate.Transaction tx = session.beginTransaction();
+            this.session.save(purchase);
+            tx.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

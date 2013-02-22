@@ -6,6 +6,7 @@ package by.bsuir.computershop.dao.notebook;
 
 import by.bsuir.computershop.dao.entity.Notebook;
 import by.bsuir.computershop.dao.entity.Personalcomputer;
+import by.bsuir.computershop.dao.entity.Purchase;
 import by.bsuir.computershop.dao.entity.Type;
 import java.util.Date;
 
@@ -60,7 +61,7 @@ public class FillingObjects {
         return notebook;
     }
 
-    public Personalcomputer fillObjectPC(Type type, String namePC, Date releaseDate,
+    public Personalcomputer fillObjectPCForAdding(Type type, String namePC, Date releaseDate,
             String platform, String processor, int numberOfCores, float weight, float diagonal,
             int operationMemory, int hardDisk, float price, Float discount) {
         Personalcomputer pc = new Personalcomputer();
@@ -78,5 +79,32 @@ public class FillingObjects {
         pc.setType(type);
         pc.setWeight(weight);
         return pc;
+    }
+    public Personalcomputer fillObjectPCForEdit(int idPC, Type type, String namePC, Date releaseDate,
+            String platform, String processor, int numberOfCores, float weight, float diagonal,
+            int operationMemory, int hardDisk, float price, Float discount) {
+        Personalcomputer pc = new Personalcomputer();
+        
+        pc.setIdPersonalComputer(idPC);
+        pc.setDiagonal(diagonal);
+        pc.setDiscount(discount);
+        pc.setHardDisk(hardDisk);
+        pc.setNamePc(namePC);
+        pc.setNumberOfCores(numberOfCores);
+        pc.setOperationMemory(operationMemory);
+        pc.setPlatform(platform);
+        pc.setPrice(price);
+        pc.setProcessor(processor);
+        pc.setReleaseDate(releaseDate);
+        pc.setType(type);
+        pc.setWeight(weight);
+        return pc;
+    }
+    public Purchase fillObjectPurchaseForAdding(float cost, Date date) {
+        Purchase purchase = new Purchase();
+        
+        purchase.setCost(cost);
+        purchase.setDate(date);
+        return purchase;
     }
 }

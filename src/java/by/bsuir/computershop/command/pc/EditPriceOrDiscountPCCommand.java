@@ -6,6 +6,7 @@ package by.bsuir.computershop.command.pc;
 
 import by.bsuir.computershop.command.Command;
 import by.bsuir.computershop.command.WrapperParameter;
+import by.bsuir.computershop.command.notebook.*;
 import by.bsuir.computershop.dao.entity.Personalcomputer;
 import by.bsuir.computershop.dao.factory.DAOFactory;
 import by.bsuir.computershop.dao.notebook.FillingObjects;
@@ -27,7 +28,7 @@ import javax.servlet.ServletException;
  *
  * @author 1
  */
-public class AddingNewPCCommand implements Command {
+public class EditPriceOrDiscountPCCommand implements Command {
 
     @Override
     public String execute(WrapperParameter wrapper) throws ServletException, IOException {
@@ -35,20 +36,9 @@ public class AddingNewPCCommand implements Command {
         try {
             HashMap<String, Object> requestParam = (HashMap<String, Object>) wrapper.parse();
             int idType = Integer.parseInt((String) requestParam.get(EnumForPC.IDTYPE.value()));
-            String namePC = (String) requestParam.get(EnumForPC.NAMEPC.value());
-            String releaseDateString = (String) requestParam.get(EnumForPC.RELEASEDATE.value());
-            String platform = (String) requestParam.get(EnumForPC.PLATFORM.value());
-            String processor = (String) requestParam.get(EnumForPC.PROCESSOR.value());
-            int numberOfCores = Integer.parseInt((String) requestParam.get(EnumForPC.NUMBEROFCORES.value()));
-            float weight = Float.parseFloat((String) requestParam.get(EnumForPC.WEIGHT.value()));
-            float diagonal = Float.parseFloat((String) requestParam.get(EnumForPC.DIAGONAL.value()));
-            int operationMemory = Integer.parseInt((String) requestParam.get(EnumForPC.OPERATIONMEMORY.value()));
-            int hardDisk = Integer.parseInt((String) requestParam.get(EnumForPC.HARDDISK.value()));
+            int idPC = Integer.parseInt((String) requestParam.get(EnumForPC.IDPERSONALCOMPUTER.value()));
             float price = Float.parseFloat((String) requestParam.get(EnumForPC.PRICE.value()));
             Float discount = Float.parseFloat((String) requestParam.get(EnumForPC.DISCOUNT.value()));
-
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-            Date releaseDate = dateFormat.parse(releaseDateString);
 
             FillingObjects pcObjForFill = new FillingObjects();
 
@@ -56,22 +46,21 @@ public class AddingNewPCCommand implements Command {
                     ConfigurationManager.getInstance().getProperty(ConfigurationManager.MY_FACTORY));
             MySQLPCDAO pcDAO = (MySQLPCDAO) mySQLFactory.getPCDAO();
             MySQLTypeDAO typeDAO = (MySQLTypeDAO) mySQLFactory.getTypeDAO();
-            
-            pcDAO.insertPersonalComputer(pcObjForFill.fillObjectPCForAdding(typeDAO.getTypeByID(idType),
-                    namePC, releaseDate,
-                    platform, processor, numberOfCores, weight, diagonal, operationMemory,
-                    hardDisk, price, discount));
+
+            pcDAO.updatePersonalComputer(pcObjForFill.fillObjectPCForEdit(idPC, typeDAO.getTypeByID(idType),
+                    pcDAO.getPersonalComputerById(idPC).getNamePc(), pcDAO.getPersonalComputerById(idPC).getReleaseDate(),
+                    pcDAO.getPersonalComputerById(idPC).getPlatform(), pcDAO.getPersonalComputerById(idPC).getProcessor(),
+                    pcDAO.getPersonalComputerById(idPC).getNumberOfCores(), pcDAO.getPersonalComputerById(idPC).getWeight(),
+                    pcDAO.getPersonalComputerById(idPC).getDiagonal(), pcDAO.getPersonalComputerById(idPC).getOperationMemory(),
+                    pcDAO.getPersonalComputerById(idPC).getHardDisk(), price, discount));
             List<Personalcomputer> persComputers = pcDAO.getAllPersonalComputer();
             wrapper.getSession().setAttribute(EnumForPC.PERSONALCOMPUTERS.value(), persComputers);
 
             //page = ConfigurationManager.getInstance().getProperty(ConfigurationManager.SHOW_ROOMS_PAGE_PATH);
             page = "/index.jsp";
-        } catch (ParseException ex) {
-            Logger.getLogger(AddingNewPCCommand.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (NumberFormatException ex) {
+        } catch (NumberFormatException ex) {
         }
 
         return page;
     }
-
 }

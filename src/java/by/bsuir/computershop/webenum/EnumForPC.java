@@ -11,6 +11,7 @@ package by.bsuir.computershop.webenum;
 public enum EnumForPC {
 
     PERSONALCOMPUTERS("personalComputers"),
+    PC("pc"),
     IDPERSONALCOMPUTER("idPersonalComputer"),
     IDTYPE("idType"),
     NAMEPC("namePC"),

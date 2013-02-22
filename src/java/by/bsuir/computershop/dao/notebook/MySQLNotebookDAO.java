@@ -70,8 +70,12 @@ public class MySQLNotebookDAO implements INotebookDAO {
     public boolean insertNotebook(Notebook notebook) {
         try {
             this.session = HibernateUtil.getSessionFactory().getCurrentSession();
+            if (!this.session.isOpen()) {
+                this.session = HibernateUtil.getSessionFactory().openSession();
+            }
             org.hibernate.Transaction tx = session.beginTransaction();
             this.session.save(notebook);
+            tx.commit();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -84,6 +88,7 @@ public class MySQLNotebookDAO implements INotebookDAO {
         Notebook notebook = new Notebook();
         try {
             this.session = HibernateUtil.getSessionFactory().getCurrentSession();
+            this.session.clear();
             org.hibernate.Transaction tx = session.beginTransaction();
             notebook.setIdNotebook(notebookForUpdate.getIdNotebook());
             notebook.setBattery(notebookForUpdate.getBattery());

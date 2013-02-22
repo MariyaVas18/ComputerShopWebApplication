@@ -6,7 +6,6 @@ package by.bsuir.computershop.dao.pc;
 
 import by.bsuir.computershop.dao.entity.Personalcomputer;
 import by.bsuir.computershop.hibernateutil.HibernateUtil;
-import java.util.Collection;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -57,8 +56,12 @@ public class MySQLPCDAO implements IPCDAO {
     public boolean insertPersonalComputer(Personalcomputer pc) {
         try {
             this.session = HibernateUtil.getSessionFactory().getCurrentSession();
+            if (!this.session.isOpen()) {
+                this.session = HibernateUtil.getSessionFactory().openSession();
+            }
             org.hibernate.Transaction tx = session.beginTransaction();
             this.session.save(pc);
+            tx.commit();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,11 +70,28 @@ public class MySQLPCDAO implements IPCDAO {
     }
 
     @Override
-    public boolean updatePersonalComputer(Personalcomputer pc) {
+    public boolean updatePersonalComputer(Personalcomputer pcForUpdate) {
+        Personalcomputer pc = new Personalcomputer();
         try {
-            this.session = HibernateUtil.getSessionFactory().getCurrentSession();
-            org.hibernate.Transaction tx = session.beginTransaction();
-            this.session.saveOrUpdate(pc);
+            this.session.flush();
+            Session session1 = HibernateUtil.getSessionFactory().openSession();
+            org.hibernate.Transaction tx = session1.beginTransaction();
+           
+            pc.setIdPersonalComputer(pcForUpdate.getIdPersonalComputer());
+            pc.setDiagonal(pcForUpdate.getDiagonal());
+            pc.setDiscount(pcForUpdate.getDiscount());
+            pc.setHardDisk(pcForUpdate.getHardDisk());
+            pc.setNamePc(pcForUpdate.getNamePc());
+            pc.setNumberOfCores(pcForUpdate.getNumberOfCores());
+            pc.setOperationMemory(pcForUpdate.getOperationMemory());
+            pc.setPlatform(pcForUpdate.getPlatform());
+            pc.setPrice(pcForUpdate.getPrice());
+            pc.setProcessor(pcForUpdate.getProcessor());
+            pc.setReleaseDate(pcForUpdate.getReleaseDate());
+            pc.setType(pcForUpdate.getType());
+            pc.setWeight(pcForUpdate.getWeight());
+            session1.saveOrUpdate(pc);
+            tx.commit();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

@@ -45,8 +45,10 @@
                             <td><c:out value="${notebook.operationMemory}"/></td>
                             <td><c:out value="${notebook.hardDisk}"/></td>
                             <td><c:out value="${notebook.battery}"/></td>
-                            <td><c:out value="${notebook.price}"/></td>
-                            <td><c:out value="${notebook.discount}"/></td>
+                            <td><input type="hidden" name="price" value="${notebook.price}"/>
+                                <c:out value="${notebook.price}"/></td>
+                            <td><input type="hidden" name="discount" value="${notebook.discount}"/>
+                                <c:out value="${notebook.discount}"/></td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -54,7 +56,7 @@
             <table>
                 <tr>
                     <td><button type="submit" value="viewNotebooks" name="command">
-                            View Notebooks
+                            Просмотреть ноутбуки
                         </button></td>
                          <td><button type="submit" value="deleteNotebook" name="command">
                             Удалить ноутбук
@@ -66,6 +68,10 @@
                     </td>
                     <td><button type="submit" value="editNotebookPage" name="command">
                             Редактировать ноутбук
+                    </td>
+                     <td><button type="submit" value="buyNotebook" name="command">
+                            Купить ноутбук
+                        </button>
                     </td>
                 </tr>
             </table>
@@ -99,8 +105,10 @@
                             <td><c:out value="${pc.diagonal}"/></td>
                             <td><c:out value="${pc.operationMemory}"/></td>
                             <td><c:out value="${pc.hardDisk}"/></td>
-                            <td><c:out value="${pc.price}"/></td>
-                            <td><c:out value="${pc.discount}"/></td>
+                            <td><input type="hidden" name="price" value="${pc.price}"/>
+                                <c:out value="${pc.price}"/></td>
+                            <td><input type="hidden" name="discount" value="${pc.discount}"/>
+                                <c:out value="${pc.discount}"/></td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -108,7 +116,7 @@
             <table>
                 <tr>
                     <td><button type="submit" value="viewPersonalComputers" name="command">
-                            View Personal computers
+                            Просмотреть компьютеры
                         </button>
                     </td>
                     <td><button type="submit" value="deletePC" name="command">
@@ -119,9 +127,40 @@
                             Добавить компьютер
                         </button>
                     </td>
+                     <td><button type="submit" value="editPCPage" name="command">
+                            Редактировать компьютер
+                    </td>
+                     <td><button type="submit" value="buyPC" name="command">
+                            Купить компьютер
+                    </td>
+                </tr>
+            </table>
+              <table border='1' title='Personal computers' id="myTable">
+                <thead><tr>
+                        <th>#</th>
+                        <th>Название продукта</th>
+                        <th>Стоимость</th>
+                        <th>Дата</th>
+                    </tr></thead>
+                <tbody>
+                    <c:forEach var="purchase" items="${purchases.notebooks}"> 
+                        <tr>
+                            <td><input type="radio" name="idPurchase" value="${purchase.idNotebook}"/></td>
+                            <td><c:out value="${purchase.nameNotebook}" /></td>
+                            <td><c:out value="${purchase.nameNotebook}" /></td>
+                            <td><c:out value="${purchase.nameNotebook}" /></td>
+                       </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+            <table>
+                <tr>
+                    <td><button type="submit" value="viewPurchases" name="command">
+                            Просмотреть покупки
+                        </button>
+                    </td>
                 </tr>
             </table>
          </form>  
-        
-    </body>
+     </body>
 </html>

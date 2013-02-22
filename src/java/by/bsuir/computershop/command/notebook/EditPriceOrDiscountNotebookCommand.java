@@ -27,7 +27,7 @@ import javax.servlet.ServletException;
  *
  * @author 1
  */
-public class EditPriceOrDiscountNotebook implements Command {
+public class EditPriceOrDiscountNotebookCommand implements Command {
 
     @Override
     public String execute(WrapperParameter wrapper) throws ServletException, IOException {
